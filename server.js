@@ -6,7 +6,8 @@ const app = express();
 app.use(express.static('public/images')) 
 app.use(cors());
 
-app.use('/saved', MemoriesRouter)
+app.use(express.json());
+app.use('/snippets', MemoriesRouter)
 
 
 app.listen(8090, () => console.log('im running on port 8090'))
