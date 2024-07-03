@@ -6,6 +6,9 @@ const router = express.Router();
 
 router.get('/', (req,res) => {
     const snippetData = JSON.parse(fs.readFileSync('./data/snippets.json'))
+    // const sortedSnippetData 
+    // 
+
     res.status(200).json(snippetData)
 })
 
@@ -26,6 +29,7 @@ router.post('/', (req, res) => {
         title,
         description,
         file,
+        timestamp: new Date() / 1000,
     }
 
     const snippetData = JSON.parse(fs.readFileSync('./data/snippets.json'))
